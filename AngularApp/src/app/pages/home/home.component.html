@@ -1,0 +1,28 @@
+<header class="app-header bg-primary">
+    <nav class="navbar navbar-expand-md">
+        <a class="navbar-brand text-white" href="#">
+            <h3><i class="fa fa-user" aria-hidden="true"></i> Hello {{username.charAt(0).toUpperCase() + username.slice(1,50)}}</h3>
+        </a>
+    </nav>
+    <ul class="nav justify-content-end">
+        <li class="nav-item">
+            <button class="btn btn-dark" (click)="logout()"><i class="fa fa-power-off" aria-hidden="true"></i> LogOut</button>
+        </li>
+    </ul>
+</header>
+
+<main role="main" class="container content">
+    <div class="row chat-content">
+        <div class="col-3 chat-list-container">
+            <app-chat-list></app-chat-list>
+        </div>
+        <div class="col-8 message-container">
+            <app-conversation></app-conversation>
+        </div>
+    </div>
+</main>
+<footer class="page-footer font-small  mt-5">
+    <div class="footer-copyright text-center py-3">© 2020 Copyright:
+        <a href="#"> Chat Application</a>
+    </div>
+</footer>

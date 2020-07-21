@@ -1,0 +1,54 @@
+<header class="app-header bg-primary">
+    <nav class="navbar navbar-expand-md justify-content-center">
+        <h3 class="text-white"><i class="fa fa-comments-o" aria-hidden="true"></i> Chat Application</h3>
+    </nav>
+</header>
+
+<div class="container mt-5">
+    <div class="row login-screen">
+        <div class="offset-md-3 col-md-5">
+            <h1 class="text-center font-weight-bold" id='login'>LogIn</h1>
+            <hr>
+            <div>
+                <form (ngSubmit)="login()" [formGroup]="loginForm" novalidate>
+                    <div class="form-group">
+                        <label class="h5">Username</label>
+                        <input type="text" name="username" class="form-control" placeholder="Enter your Username" formControlName="username" autocomplete="off" />
+                        <div class="alert alert-danger feedback" *ngIf="
+                            !loginForm.controls['username'].valid &&
+                            (loginForm.controls['username'].dirty ||
+                            loginForm.controls['username'].touched)
+                        ">
+                            <span *ngIf="loginForm.controls['username'].errors.required">
+                            Username is required
+                          </span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="h5">Password</label>
+                        <input type="password" name="password" class="form-control" placeholder="Enter your Password" formControlName="password" />
+                        <div class="alert alert-danger feedback" *ngIf="
+                          loginForm.controls['password'].invalid &&
+                          (loginForm.controls['password'].dirty ||
+                          loginForm.controls['password'].touched)
+                        ">
+                            <span *ngIf="loginForm.controls['password'].errors.required">
+                              Password is required
+                            </span>
+                            <span *ngIf="loginForm.controls['password'].errors.minlength">
+                              Password consists of at least six characters that are a combination of letters, numbers
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-block" [disabled]="!loginForm.valid">
+                          Login
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

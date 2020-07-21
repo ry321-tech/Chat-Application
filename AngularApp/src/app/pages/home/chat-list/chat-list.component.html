@@ -1,0 +1,9 @@
+<h3 id="ul"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Users List</h3>
+<ul class="user-list">
+    <li *ngFor="let user of chatListUsers" (click)="selectedUser(user)" [class.active]="isUserSelected(user.id)">
+        {{ user.username}}
+    </li>
+</ul>
+<div class="alert" alert-info.class="!loading" *ngIf='chatListUsers.length === 0'>
+    {{ loading && chatListUsers.length === 0 ? 'Loading your chat list.' : 'No User Avilable to chat.'}}
+</div>
